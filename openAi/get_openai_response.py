@@ -30,11 +30,11 @@ def get_openai_response(content):
     except Exception as e:
         return f"An error occurred: {e}"
 
-if __name__ == "__main__":
-    # 测试函数
-    response = get_openai_response("你好")
-    print(response)
-
-    # 你可以传入不同的内容调用该函数
-    another_response = get_openai_response("你好，你是谁")
-    print(another_response)
+# if __name__ == "__main__":
+#     # 测试函数
+#     response = get_openai_response("你好")
+#     print(response)
+#
+#     # 你可以传入不同的内容调用该函数
+#     another_response = get_openai_response("你好，你是谁")
+#     print(another_response)

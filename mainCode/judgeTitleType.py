@@ -2,6 +2,7 @@ from differentQuestion.dropdownMenuSelection import select_random_area
 from differentQuestion.fillTextarea import fill_textarea
 from differentQuestion.matrixScaleChoice import matrix_scale_choice
 from differentQuestion.multipleChoice import multiple_choice
+from differentQuestion.multipleFillBlank import multipleFillBlank
 from differentQuestion.scaleChoice import scale_choice
 from differentQuestion.singleChoice import simple_choice
 from differentQuestion.singleFillBlank import single_fill_blank
@@ -30,9 +31,7 @@ def judgeTitleType(driver, title_id, title_type):
                 print(title_id)
                 print('title8')
             case "9":
-                print(title_id)
-
-                print('title9')
+                multipleFillBlank(driver, title_id)
             case "10":
                 print(title_id)
 
