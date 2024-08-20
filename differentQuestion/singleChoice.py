@@ -6,9 +6,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 from mainCode.getChoiceNum import getChoicesNum
+from mainCode.get_title_text import get_title_text
 from mainCode.wait_and_click import wait_and_click
 from openAi.get_openai_response import get_openai_response
 from randomChoice.singleRandomChoice import single_random_choice
+
+
+
 
 
 def simple_choice(driver, title_id):
@@ -17,9 +21,10 @@ def simple_choice(driver, title_id):
     select_choice = single_random_choice(title_num)
     choice_xpath = f"//div[@for='q{title_id}_{select_choice}']"
     wait_and_click(driver, choice_xpath)
+
     input_xpath = f'//*[@id="tqq{title_id}_{select_choice}"]'
-    title_xpath = f'//*[@id="div{title_id}"]/div[1]/div[2]'
-    title_text = driver.find_element(By.XPATH, title_xpath).text
+    title_text = get_title_text(driver, title_id)
+
     try:
         # 检查输入框是否存在
         input_elements = WebDriverWait(driver, 0.1).until(

@@ -20,7 +20,7 @@ def get_openai_response(content):
             messages=[
                 {
                     "role": "user",
-                    "content": content+",请使用简短的中文且符合问卷调查的话语回答我",
+                    "content": content+",请使用简短的中文且符合问卷调查的话语回答我，不要反问我根据你的理解直接给出答案，以第一人称回答，要求陈述句，不要使用对话的形式",
                 },
             ],
         )

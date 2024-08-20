@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
+from mainCode.get_title_text import get_title_text
 from openAi.get_openai_response import get_openai_response
 from randomChoice.timeRandomClick import time_random_click
 
@@ -19,12 +20,8 @@ def single_fill_blank(driver, title_id):
         time.sleep(1)
         time_random_click(driver)
         time.sleep(1)
-        # confirm_button_xpath = f'//*[@id="layui-laydate1"]/div[2]/div/span[3]'
-        # driver.find_element(By.XPATH, '//*[@id="layui-laydate1"]/div[2]/div/span[3]').click()
     else:
-        # 定位问题的XPath
-        title_xpath = f'//*[@id="div{title_id}"]/div[1]/div[2]'
-        title_text = driver.find_element(By.XPATH, title_xpath).text
+        title_text = get_title_text(driver, title_id)
 
         # 获取OpenAI生成的答案
         answer_text = get_openai_response(title_text)

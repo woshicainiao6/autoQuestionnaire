@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 from mainCode.getChoiceNum import getChoicesNum
+from mainCode.get_title_text import get_title_text
 from openAi.get_openai_response import get_openai_response
 
 
@@ -12,7 +13,7 @@ def multipleFillBlank(driver, title_id):
     question_num_xpath = f'//*[@id="divRefTab{title_id}"]/tbody'
     question_num = int(getChoicesNum(driver, question_num_xpath) / 2)
     title_text_xpath = f'//*[@id="div{title_id}"]/div[1]/div[2]'
-    title_text = driver.find_element(By.XPATH, title_text_xpath).text
+    title_text = get_title_text(driver, title_id)
     for index, question in enumerate(range(question_num)):
         question_title_xpath = f'//*[@id="drv{title_id}_{index + 1}"]/td[1]/div/span'
         question_title = driver.find_element(By.XPATH, question_title_xpath).text
