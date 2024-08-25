@@ -1,6 +1,8 @@
 import requests
-
-from static.configuration import proxypool_url
+from static.configuration import proxypool_url,proxy_target_url
+# 代理池API URL
+proxypool_url = proxypool_url
+target_url = proxy_target_url
 
 # 全局变量用于存储已经使用过的 IP 地址
 used_ips = set()
