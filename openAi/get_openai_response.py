@@ -1,9 +1,11 @@
 import openai
 
+from static.configuration import api_key, base_url, default_headers
+
 # 初始化OpenAI API配置
-openai.api_key = "sk-jrn0VdyFcoBrbUZG92Bd2e35E0A541EeBcDe82F98aCaFc5b"
-openai.base_url = "https://free.gpt.ge/v1/"
-openai.default_headers = {"x-foo": "true"}
+openai.api_key = api_key
+openai.base_url = base_url
+openai.default_headers = default_headers
 
 
 def get_openai_response(content):
@@ -20,7 +22,7 @@ def get_openai_response(content):
             messages=[
                 {
                     "role": "user",
-                    "content": content+",请使用简短的中文且符合问卷调查的话语回答我，不要反问我根据你的理解直接给出答案，以第一人称回答，要求陈述句，不要使用对话的形式",
+                    "content": content + ",请使用简短的中文且符合问卷调查的话语回答我，不要反问我根据你的理解直接给出答案，以第一人称回答，要求陈述句，不要使用对话的形式",
                 },
             ],
         )
