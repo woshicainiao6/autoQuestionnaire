@@ -24,7 +24,7 @@
 
 ### 1. 安装 Python
 
-确保您的系统中已安装 `Python 3.x`。如果尚未安装，请前往 [Python 官网](https://www.python.org/downloads/)下载并安装适合您操作系统的版本。
+确保您的系统中已安装 `Python 3.10`及以上版本的python。如果尚未安装，请前往 [Python 官网](https://www.python.org/downloads/)下载并安装适合您操作系统的版本。
 
 ### 2. 安装 Selenium
 
@@ -33,16 +33,25 @@
 ```
 pip install selenium
 ```
+### 3. 安装 谷歌chromedriver
+您需要下载并安装 `chromedriver`，它是一个与 `Chrome` 浏览器一起使用的自动化测试工具。您可以从 [ChromeDriver 下载页面](https://chromedriver.chromium.org/downloads)下载适合您的操作系统的版本。
+将下载的 `chromedriver` 文件并将其保存在 `Python` 的根文件目录中。
 
-### 3. 配置 OpenAI
+### 4. 配置 OpenAI
 
-程序利用 `OpenAI` 的 `API` 来处理填空题的自动回答。您需要在 `openAi` 文件夹下的 `get_openai_response.py` 文件中配置您的 `OpenAI API` 密钥：
+为了使用 `OpenAI API` 实现填空题的自动回答功能，您需要在 `static` 文件夹下的 `configuration.py` 文件中配置您的 `api_key` 密钥。该密钥使用的是免费的 API 服务，具体项目地址为：[GitHub - free_chatgpt_api](https://github.com/popjane/free_chatgpt_api.git)。
 
+请确保正确配置 API 密钥，以便程序能够顺利调用 OpenAI 的接口进行填空题的自动回答。
+
+#### 配置步骤：
+1. 打开 `static` 文件夹中的 `configuration.py` 文件。
+2. 在文件中找到用于配置 API 密钥的位置。
+3. 将您的 `api_key` 密钥填入指定位置。
 ```
-openai.api_key = "your-api-key-here"
+api_key = "your-api-key-here"
 ```
 
-将 `"your-api-key-here"` 替换为您自己的 `API` 密钥。
+通过以上步骤，您可以顺利完成 API 密钥的配置，并使程序具备调用 OpenAI API 进行填空题自动回答的能力。
 
 ## 使用方法
 
