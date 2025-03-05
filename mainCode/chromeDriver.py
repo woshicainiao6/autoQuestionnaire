@@ -11,10 +11,11 @@ def chrome_driver(url):
     :param proxy_port: 代理端口
     :return: 配置好代理的Chrome浏览器实例
     """
+    proxy_ip, proxy_port=main()
     # 配置Chrome选项
     proxyauth_plugin_path = create_proxyauth_extension(
-        proxy_host="${HOST}",  # 代理IP
-        proxy_port="${PORT}",  # 端口号
+        proxy_host=proxy_ip,  # 代理IP
+        proxy_port=proxy_port,  # 端口号
         # 用户名密码(私密代理/独享代理)
         proxy_username="d2393405771",
         proxy_password="0tcc4090"

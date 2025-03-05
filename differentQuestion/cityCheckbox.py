@@ -10,7 +10,8 @@ from randomChoice.dropdownRandomMenuSelection import getDropdownChoiceList
 def city_checkbox(driver, title_id):
     province_xpath = f'//*[@id="divFrameData"]/div/div[1]/div/select'
     province_list=getDropdownChoiceList(driver, province_xpath)
-    random_probince=choice(province_list)
+    # random_probince=choice(province_list)
+    random_probince='山东'
     province_select = Select(driver.find_element(By.NAME, "province"))
     province_select.select_by_visible_text(random_probince)
     city_checkbox_xpath=f'//*[@id="divFrameData"]/div/div[2]/div/select'
