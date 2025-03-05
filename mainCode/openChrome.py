@@ -1,3 +1,4 @@
+import random
 import time
 
 from selenium.webdriver.common.by import By
@@ -25,7 +26,8 @@ def open_chrome(url):
         for index, child in enumerate(children):
             if child.get_attribute('style') != "display: none;":
                 judgeTitleType(driver, child.get_attribute("topic"), child.get_attribute("type"))
-        # time.sleep(20)
+        # 随机休息80-100秒
+        time.sleep(random.randint(80, 100))  # 生成80-100之间的随机整数秒
 
         # 提交问卷
         xpath_submit = "//div[@id='ctlNext' and contains(@class, 'submitbtn') and text()='提交']"

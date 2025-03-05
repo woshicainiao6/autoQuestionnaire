@@ -1,3 +1,4 @@
+from differentQuestion.cityCheckbox import city_checkbox
 from differentQuestion.dropdownMenuSelection import select_random_area
 from differentQuestion.fillTextarea import fill_textarea
 from differentQuestion.matrixScaleChoice import matrix_scale_choice
@@ -29,7 +30,6 @@ def judgeTitleType(driver, title_id, title_type):
                 select_random_area(driver, title_id)
             case "8":
                 print(title_id)
-                print('title8')
             case "9":
                 multipleFillBlank(driver, title_id)
             case "10":

@@ -8,7 +8,7 @@ base_url =  "https://free.v36.cm/v1/"
 default_headers = {"x-foo": "true"}
 
 # 代理池URL，用于获取随机代理IP
-proxypool_url = 'http://8.139.255.98:5555/random'
+proxypool_url = 'https://dps.kdlapi.com/api/getdps/?secret_id=oekwnb482rng5g9lxvcm&signature=jr72q02331cb67kb3jyoq7r34cjmjsnc&num=1&pt=1&format=text&sep=1&dedup=1&area=%E5%B1%B1%E4%B8%9C'
 
 # 目标URL，通过代理访问的最终目的地
 proxy_target_url = 'http://httpbin.org/get'
@@ -16,7 +16,7 @@ proxy_target_url = 'http://httpbin.org/get'
 # 问卷填写URL，指定要自动填写的问卷地址
 # questionAire_url = "https://www.wjx.cn/vm/eo3mdYX.aspx#"
 # questionAire_url='https://www.wjx.cn/vm/wu9f2rZ.aspx'
-questionAire_url="https://www.wjx.cn/vm/rg3dg49.aspx#"
-
+# questionAire_url="https://www.wjx.cn/vm/rg3dg49.aspx#"
+questionAire_url="https://www.wjx.cn/vm/wu9Hs3L.aspx#"
 # 问卷填写数量，计划自动填写的问卷数目
 questionAire_num = 500

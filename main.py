@@ -14,7 +14,7 @@ if __name__ == '__main__':
     url = questionAire_url
 
     # 每次最多使用10个线程
-    max_threads = 5
+    max_threads = 1
 
     # 创建线程池并发执行，每次最多10个线程
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_threads) as executor:
