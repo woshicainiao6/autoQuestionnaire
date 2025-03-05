@@ -10,15 +10,17 @@ from mainCode.get_title_text import get_title_text
 from mainCode.wait_and_click import wait_and_click
 from openAi.get_openai_response import get_openai_response
 from randomChoice.singleRandomChoice import single_random_choice
-
-
-
-
+from static import weight
+from static.weight import *
 
 def simple_choice(driver, title_id):
     title_num_xpath = f'//*[@id="div{title_id}"]/div[2]'
     title_num = getChoicesNum(driver, title_num_xpath)
-    select_choice = single_random_choice(title_num)
+    if title_id in single_choice_title_id_array:
+        weight_value = getattr(weight, f"weight{title_id}")
+        select_choice = single_random_choice(title_num,weight_value)
+    else:
+        select_choice = single_random_choice(title_num)
     choice_xpath = f"//div[@for='q{title_id}_{select_choice}']"
     wait_and_click(driver, choice_xpath)
 
