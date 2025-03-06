@@ -8,8 +8,6 @@ def single_random_choice(question_num, weights=None):
     if not weights:
         selected = random.choice(numbers)
     else:
-        print("weights:", weights)
-        print("question_num:", question_num)
         # 如果weights不为空，确保其长度与question_num一致
         if len(weights) != question_num:
             raise ValueError("权重列表的长度必须等于question_num的值")

@@ -22,7 +22,7 @@ def get_openai_response(content):
             messages=[
                 {
                     "role": "user",
-                    "content": content + ",请使用简短的中文不超过20个字且符合问卷调查的话语回答我，如果是选择题包括多选题，请给出你的选项不要有其他的任何多余的内容，示例样式：朋友推荐┋社交媒体（只作为样式，不是固定答案，且只是选择题，其他题目不用该格式），不要反问我根据你的理解直接给出答案，以第一人称回答，要求陈述句，不要使用对话的形式",
+                    "content": content + ",请使用简短的中文不超过20个字且符合问卷调查的话语回答我，如果是选择题包括多选题，请给出你的选项不要有其他的任何多余的内容，示例样式：朋友推荐┋社交媒体（只作为样式，不是固定答案，且只是选择题，非选择题他题目不用该格式），不要反问我根据你的理解直接给出答案，以第一人称回答，要求陈述句，不要使用对话的形式",
                 },
             ],
         )
@@ -32,11 +32,11 @@ def get_openai_response(content):
     except Exception as e:
         return f"An error occurred: {e}"
 
-# if __name__ == "__main__":
-#     # 测试函数
-#     response = get_openai_response("你好")
-#     print(response)
-#
-#     # 你可以传入不同的内容调用该函数
-#     another_response = get_openai_response("你好，你是谁")
-#     print(another_response)
+if __name__ == "__main__":
+    # 测试函数
+    response = get_openai_response("你好")
+    print(response)
+
+    # 你可以传入不同的内容调用该函数
+    another_response = get_openai_response("你好，你是谁")
+    print(another_response)

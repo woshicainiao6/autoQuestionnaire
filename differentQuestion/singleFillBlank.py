@@ -23,7 +23,7 @@ def single_fill_blank(driver, title_id):
         time.sleep(1)
     elif input_element.get_attribute('verify') == '城市单选':
         input_element.click()
-        time.sleep(1)
+        time.sleep(2)
         city_checkbox(driver, title_id)
     else:
         title_text = get_title_text(driver, title_id)

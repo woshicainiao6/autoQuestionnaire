@@ -27,7 +27,7 @@ def open_chrome(url):
             if child.get_attribute('style') != "display: none;":
                 judgeTitleType(driver, child.get_attribute("topic"), child.get_attribute("type"))
         # 随机休息80-100秒
-        time.sleep(random.randint(80, 100))  # 生成80-100之间的随机整数秒
+        time.sleep(random.randint(60, 80))  # 生成80-100之间的随机整数秒
 
         # 提交问卷
         xpath_submit = "//div[@id='ctlNext' and contains(@class, 'submitbtn') and text()='提交']"
