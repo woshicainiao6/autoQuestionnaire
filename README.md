@@ -1,7 +1,7 @@
 # AutoQuestionnaire
 
-![https://github.com/woshicainiao6/autoQuestionnaire/releases/tag/v1.0.0](https://img.shields.io/badge/version-1.0.0-blue.svg)
-![https://github.com/woshicainiao6/autoQuestionnaire/blob/master/LICENSE](https://img.shields.io/badge/license-MIT-green.svg)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/woshicainiao6/autoQuestionnaire/releases/tag/v1.0.0)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/woshicainiao6/autoQuestionnaire/blob/master/LICENSE)
 
 自动问卷填写工具，基于Python实现的自动化问卷填写系统。
 
