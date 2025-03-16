@@ -129,7 +129,7 @@ questionAire_num = 500  # 需要填写的问卷数量
 
 # 执行配置
 max_threads = 5  # 最大并发线程数
-wari_time = 5  # 基础等待时间（秒）
+wait_time = 5  # 基础等待时间（秒）
 open_Browser = False  # 是否显示浏览器界面
 
 # 代理配置（可选）

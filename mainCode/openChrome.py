@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 from mainCode.chromeDriver import chrome_driver
 from mainCode.judgeTitleType import judgeTitleType
-from static.configuration import wari_time
+from static.configuration import wait_time
 
 def open_chrome(url):
     driver = chrome_driver(url)
@@ -27,7 +27,7 @@ def open_chrome(url):
             if child.get_attribute('style') != "display: none;":
                 judgeTitleType(driver, child.get_attribute("topic"), child.get_attribute("type"))
         # 随机休息80-100秒
-        time.sleep(random.randint(wari_time, wari_time+20))  # 生成80-100之间的随机整数秒
+        time.sleep(random.randint(wait_time, wait_time+20))  # 生成80-100之间的随机整数秒
 
         # 提交问卷
         xpath_submit = "//div[@id='ctlNext' and contains(@class, 'submitbtn') and text()='提交']"
