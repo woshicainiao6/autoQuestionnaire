@@ -14,9 +14,14 @@ proxypool_url = 'https://dps.kdlapi.com/api/getdps/?secret_id=oekwnb482rng5g9lxv
 proxy_target_url = 'http://httpbin.org/get'
 
 # 问卷填写URL，指定要自动填写的问卷地址
-# questionAire_url = "https://www.wjx.cn/vm/eo3mdYX.aspx#"
+questionAire_url = "https://www.wjx.cn/vm/rg3dg49.aspx#"
 # questionAire_url='https://www.wjx.cn/vm/wu9f2rZ.aspx'
 # questionAire_url="https://www.wjx.cn/vm/rg3dg49.aspx#"
-questionAire_url="https://www.wjx.cn/vm/wu9Hs3L.aspx#"
+# questionAire_url="https://www.wjx.cn/vm/wu9Hs3L.aspx#"
 # 问卷填写数量，计划自动填写的问卷数目
 questionAire_num = 500
+
+wari_time=5
+
+# 是否打开浏览器
+open_Browser=False

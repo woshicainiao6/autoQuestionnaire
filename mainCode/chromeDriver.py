@@ -2,8 +2,7 @@ from selenium import webdriver
 
 from proxy.proxyauth_extension import create_proxyauth_extension
 from proxy.randomProxy import main
-
-
+from static.configuration import open_Browser
 def chrome_driver(url):
     """
     初始化Chrome浏览器并设置代理
@@ -24,8 +23,11 @@ def chrome_driver(url):
 
 
     chrome_options = webdriver.ChromeOptions()
+    if not open_Browser:
+        chrome_options.add_argument('--headless')
 
-    # 设置代理
+
+# 设置代理
     chrome_options.add_extension(proxyauth_plugin_path)
     # 第二种方式
     # chrome_options.add_argument(f'--proxy-server=http://{proxy_ip}:{proxy_port}')
