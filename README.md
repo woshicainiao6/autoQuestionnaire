@@ -1,6 +1,32 @@
 # AutoQuestionnaire
 
+![version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![license](https://img.shields.io/badge/license-MIT-green.svg)
+
 自动问卷填写工具，基于Python实现的自动化问卷填写系统。
+
+## 版本说明 (v1.0.0)
+
+这是 AutoQuestionnaire 的首个正式发布版本，提供了以下核心功能：
+
+- ✨ 多线程并发问卷填写
+- 🔒 代理IP池支持
+- 🤖 AI智能答案生成
+- 📝 支持多种题型自动填写
+- 🛡️ 完善的错误处理机制
+- 📊 实时进度显示
+
+### 支持的题型
+- 单选题
+- 多选题
+- 填空题
+- 下拉菜单
+- 矩阵量表题
+- 排序题
+- 时间选择题
+
+### 更新日期
+2024-03-16
 
 ## 项目简介
 
