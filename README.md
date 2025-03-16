@@ -1,69 +1,225 @@
-# autoQuestionnaire 自动问卷填写程序
+# AutoQuestionnaire
 
-`autoQuestionnaire` 是一个基于 Python 和 Selenium 的自动化工具，旨在帮助用户自动填写问卷星上的问卷。通过此工具，您可以大大减少在重复性问卷填写上的时间和精力投入。
+自动问卷填写工具，基于Python实现的自动化问卷填写系统。
 
-## 功能特点
+## 项目简介
 
-当前程序支持的题型包括：
+AutoQuestionnaire 是一个强大的自动化问卷填写工具，使用Python开发，支持多线程并发执行，可以高效地完成大量问卷的自动填写任务。该工具主要用于问卷测试。
 
-- **单选题**：自动选择单选题中的一个选项。
-- **多选题**：从多选题的复选框列表中选择多个选项。
-- **填空题**：自动填写问卷中的输入框，支持预定义答案或调用 AI 生成答案。
-- **文本题**：针对问卷中的简答题，自动填写长文本内容，支持预定义答案或调用 AI 生成答案。。
-- **排序题**：根据预定义或随机顺序，对选项进行排序。
-- **下拉框题**：从下拉菜单中自动选择一个选项。
-- **量表题**：自动在量表中选择对应的评分值。
-- **矩阵量表题**：在矩阵量表中自动选择对应的选项。
-- **评分题**：根据题目要求自动进行评分。
-- **多项填空题**：自动填写问卷中的多项输入框，支持预定义答案或调用 AI 生成答案。
-- **时间选择框**：随机选择时间。
+## 主要特性
 
-## 安装指南
+- 多线程并发执行，提高填写效率
+- 支持代理IP池，避免IP限制
+- 可配置的填写参数
+- 智能随机答案生成
+- 异常处理机制
+- 实时进度显示
+- 支持多种题型自动填写：
+  - 单选题
+  - 多选题
+  - 填空题
+  - 下拉菜单
+  - 矩阵量表题
+  - 排序题
+  - 时间选择题
 
-在运行程序之前，请按照以下步骤配置您的环境并安装所需依赖：
+## 技术栈
 
-### 1. 安装 Python
+- Python 3.x
+- Selenium WebDriver
+- Chrome浏览器
+- 多线程处理
+- OpenAI API（用于智能答案生成）
 
-确保您的系统中已安装 `Python 3.10`及以上版本的python。如果尚未安装，请前往 [Python 官网](https://www.python.org/downloads/)下载并安装适合您操作系统的版本。
-
-### 2. 安装 Selenium
-
-`Selenium` 是用于 Web 自动化测试的 Python 库，您可以使用 pip 进行安装：
+## 目录结构
 
 ```
-pip install selenium
-```
-### 3. 安装 谷歌chromedriver
-您需要下载并安装 `chromedriver`，它是一个与 `Chrome` 浏览器一起使用的自动化测试工具。您可以从 [ChromeDriver 下载页面](https://chromedriver.chromium.org/downloads)下载适合您的操作系统的版本。
-将下载的 `chromedriver` 文件并将其保存在 `Python` 的根文件目录中。
-
-### 4. 配置 OpenAI
-
-为了使用 `OpenAI API` 实现填空题的自动回答功能，您需要在 `static` 文件夹下的 `configuration.py` 文件中配置您的 `api_key` 密钥。该密钥使用的是免费的 API 服务，具体项目地址为：[GitHub - free_chatgpt_api](https://github.com/popjane/free_chatgpt_api.git)。
-
-请确保正确配置 API 密钥，以便程序能够顺利调用 OpenAI 的接口进行填空题的自动回答。
-
-#### 配置步骤：
-1. 打开 `static` 文件夹中的 `configuration.py` 文件。
-2. 在文件中找到用于配置 API 密钥的位置。
-3. 将您的 `api_key` 密钥填入指定位置。
-```
-api_key = "your-api-key-here"
+autoQuestionnaire/
+├── main.py                 # 主程序入口
+├── static/                 # 静态配置文件
+│   └── configuration.py    # 配置参数
+├── mainCode/              # 核心代码
+├── openAi/                # AI相关功能
+├── differentQuestion/     # 不同问题类型处理
+├── randomChoice/         # 随机选择逻辑
+└── proxy/                # 代理相关功能
 ```
 
-通过以上步骤，您可以顺利完成 API 密钥的配置，并使程序具备调用 OpenAI API 进行填空题自动回答的能力。
+## 详细安装说明
+
+### 1. 环境要求
+
+- Python 3.10 或更高版本
+- Google Chrome 浏览器
+- 稳定的网络连接
+
+### 2. 克隆项目
+
+```bash
+git clone [repository-url]
+cd autoQuestionnaire
+```
+
+### 3. 安装Python依赖
+
+```bash
+pip install -r requirements.txt
+```
+
+所需的主要依赖包括：
+- selenium>=4.16.0：用于浏览器自动化
+- requests>=2.31.0：用于HTTP请求
+- openai>=1.12.0：用于AI答案生成
+- webdriver-manager>=4.0.1：用于管理ChromeDriver
+
+### 4. 配置Chrome浏览器和WebDriver
+
+#### Windows系统：
+
+1. 安装Chrome浏览器：
+   - 访问 [Chrome官网](https://www.google.com/chrome/) 下载并安装最新版本
+
+2. 安装ChromeDriver：
+   - 访问 [ChromeDriver下载页面](https://chromedriver.chromium.org/downloads)
+   - 下载与您的Chrome浏览器版本匹配的ChromeDriver
+   - 将ChromeDriver解压到系统PATH环境变量包含的任意目录中
+   - 或者将ChromeDriver放在项目根目录下
+
+#### Linux系统：
+
+1. 安装Chrome浏览器：
+```bash
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+sudo dpkg -i google-chrome-stable_current_amd64.deb
+sudo apt-get install -f
+```
+
+2. 安装ChromeDriver：
+```bash
+CHROME_VERSION=$(google-chrome --version | cut -d " " -f3 | cut -d "." -f1)
+wget https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}
+wget https://chromedriver.storage.googleapis.com/$(cat LATEST_RELEASE_${CHROME_VERSION})/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+sudo mv chromedriver /usr/local/bin/
+```
+
+#### MacOS系统：
+
+1. 使用Homebrew安装Chrome浏览器：
+```bash
+brew install --cask google-chrome
+```
+
+2. 安装ChromeDriver：
+```bash
+brew install chromedriver
+```
+
+## 配置说明
+
+在 `static/configuration.py` 中配置以下参数：
+
+```python
+# API密钥配置
+api_key = "your-api-key"  # OpenAI API密钥
+
+# 问卷配置
+questionAire_url = "https://www.example.com/survey"  # 目标问卷URL
+questionAire_num = 500  # 需要填写的问卷数量
+
+# 执行配置
+max_threads = 5  # 最大并发线程数
+wari_time = 5  # 基础等待时间（秒）
+open_Browser = False  # 是否显示浏览器界面
+
+# 代理配置（可选）
+proxypool_url = 'your-proxy-pool-url'  # 代理池API地址
+```
 
 ## 使用方法
 
-1. **配置环境**：按照上述步骤完成所有依赖的安装。
-2. **运行程序**：在终端或命令行中导航到项目目录，并运行主程序文件。
-3. **自动填写问卷**：程序将根据配置的逻辑自动进行问卷的填写。
+1. 配置参数：
+   - 在 `static/configuration.py` 中设置目标问卷URL和填写数量
+   - 配置API密钥（如果需要使用AI生成答案）
+   - 配置代理池（如果需要使用代理）
 
-未来版本将继续添加更多题型的支持，优化现有功能，并改善用户体验。
+2. 运行程序：
+```bash
+python main.py
+```
+
+3. 监控进度：
+   - 程序会实时显示填写进度
+   - 可以在控制台查看完成情况
 
 ## 注意事项
 
-- **API 调用**：在使用 `OpenAI` 进行填空题回答时，请确保您的 `API` 调用次数和费用在可控范围内。
-- **依赖安装**：在程序使用过程中，如遇到缺少依赖的提示，请根据提示使用 `pip install` 命令进行安装。
+1. 请确保遵守目标网站的使用条款和政策
+2. 建议合理设置并发数和填写间隔
+3. 使用代理IP时需确保代理的可用性
+4. 建议在测试环境下先进行小规模测试
+5. 定期更新ChromeDriver以匹配Chrome浏览器版本
+6. 确保系统防火墙不会阻止程序的网络访问
+7. 使用代理时注意IP质量和访问频率限制
 
-希望这个工具能为您的问卷填写工作带来便利！
+## 错误处理
+
+程序包含完善的错误处理机制：
+- 线程异常捕获
+- 网络连接错误处理
+- 浏览器操作超时处理
+- 自动重试机制
+
+## 常见问题解决
+
+1. ChromeDriver版本不匹配：
+   - 确保ChromeDriver版本与Chrome浏览器版本相匹配
+   - 可以使用webdriver-manager自动管理版本
+
+2. 网络连接问题：
+   - 检查网络连接
+   - 确认代理服务器是否可用
+   - 适当增加等待时间
+
+3. 元素定位失败：
+   - 检查页面结构是否发生变化
+   - 增加等待时间
+   - 使用更可靠的元素定位方式
+
+## 贡献指南
+
+欢迎提交问题和改进建议，您可以：
+1. 提交Issue
+2. 创建Pull Request
+3. 联系项目维护者
+
+## 许可证
+
+MIT License
+
+Copyright (c) 2025 LutongZhang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## 联系方式
+
+如果您有任何问题或建议，欢迎通过以下方式联系我们：
+
+- Email 1: 1609213626@qq.com
+- Email 2: zhanglutong6518@163.com
