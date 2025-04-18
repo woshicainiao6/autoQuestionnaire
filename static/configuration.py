@@ -16,6 +16,8 @@ questionAire_url = "https://www.wjx.cn/vm/rg3dg49.aspx#"
 # 问卷填写数量，计划自动填写的问卷数目
 questionAire_num = 500
 
+max_threads=5
+
 wait_time = 5
 
 # 是否打开浏览器

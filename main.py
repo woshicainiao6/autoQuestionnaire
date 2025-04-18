@@ -1,5 +1,5 @@
 from mainCode.openChrome import open_chrome
-from static.configuration import questionAire_url, questionAire_num
+from static.configuration import questionAire_url, questionAire_num, max_threads
 import concurrent.futures
 
 
@@ -12,9 +12,6 @@ def open_chrome_thread(url, index):
 
 if __name__ == '__main__':
     url = questionAire_url
-
-    # 每次最多使用10个线程
-    max_threads = 5
 
     # 创建线程池并发执行，每次最多10个线程
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_threads) as executor:
